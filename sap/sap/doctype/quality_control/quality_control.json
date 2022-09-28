@@ -1,0 +1,91 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-05-08 11:55:47.947625",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "options_section",
+  "change_rolls_status",
+  "column_break_3",
+  "filter",
+  "column_break_5",
+  "clear_filter",
+  "items_section",
+  "product_items"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Quality Control Details"
+  },
+  {
+   "fieldname": "change_rolls_status",
+   "fieldtype": "Button",
+   "label": "Change Rolls Status"
+  },
+  {
+   "fieldname": "options_section",
+   "fieldtype": "Section Break",
+   "label": "Options"
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "filter",
+   "fieldtype": "Button",
+   "label": "Filter"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "clear_filter",
+   "fieldtype": "Button",
+   "label": "Clear Filter"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-07-05 14:14:28.188488",
+ "modified_by": "Administrator",
+ "module": "Sap",
+ "name": "Quality Control",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Quality Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

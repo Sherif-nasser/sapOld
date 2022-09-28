@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-08-26 10:11:43.569400",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "doc_num",
+  "doc_entry",
+  "doc_date",
+  "column_break_4",
+  "item_code",
+  "item_description",
+  "quantity",
+  "status",
+  "section_break_7",
+  "batch_numbers",
+  "send_to_sap"
+ ],
+ "fields": [
+  {
+   "fieldname": "doc_num",
+   "fieldtype": "Int",
+   "label": "Doc Num",
+   "read_only": 1
+  },
+  {
+   "fieldname": "doc_entry",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Doc Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "doc_date",
+   "fieldtype": "Data",
+   "label": "Doc Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_description",
+   "fieldtype": "Data",
+   "label": "Item Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "batch_numbers",
+   "fieldtype": "Table",
+   "label": "Batch Numbers",
+   "options": "QC Integration Details"
+  },
+  {
+   "fieldname": "send_to_sap",
+   "fieldtype": "Button",
+   "label": "send to sap"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "status",
+   "options": "New\nUnder Progress\nFinished"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-08-27 11:26:28.838744",
+ "modified_by": "Administrator",
+ "module": "Sap",
+ "name": "QC Integration",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "doc_entry"
+}

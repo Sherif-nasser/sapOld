@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-03-03 11:21:59.634938",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ref",
+  "pallet_no",
+  "net_weight",
+  "gross_weight",
+  "measure",
+  "jambo_roll_no",
+  "quality_status",
+  "item_status",
+  "print_qr",
+  "qt_inspection",
+  "scaler",
+  "qr_code"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "measure",
+   "fieldtype": "Button",
+   "label": "Measure"
+  },
+  {
+   "columns": 1,
+   "fieldname": "net_weight",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Net Weight"
+  },
+  {
+   "columns": 1,
+   "fieldname": "scaler",
+   "fieldtype": "Link",
+   "label": "Scaler",
+   "options": "Scaler"
+  },
+  {
+   "columns": 1,
+   "default": "Open",
+   "fieldname": "item_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Item Status",
+   "options": "Open\nWaited\nWaiting Quality\nInspected\nSent to SAP"
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Attach Image",
+   "label": "QR Code"
+  },
+  {
+   "columns": 1,
+   "fieldname": "print_qr",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "Print QR"
+  },
+  {
+   "fieldname": "qt_inspection",
+   "fieldtype": "Link",
+   "label": "Qt Inspection",
+   "options": "Quality Inspection",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "quality_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Quality Status",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "pallet_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Pallet No"
+  },
+  {
+   "fieldname": "ref",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Serial - Length - Width"
+  },
+  {
+   "columns": 1,
+   "fieldname": "gross_weight",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Gross Weight"
+  },
+  {
+   "fieldname": "jambo_roll_no",
+   "fieldtype": "Data",
+   "label": "Jambo Roll No"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-08-17 13:09:00.770480",
+ "modified_by": "Administrator",
+ "module": "Sap",
+ "name": "Product Order Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

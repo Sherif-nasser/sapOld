@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include sap *.css
+recursive-include sap *.csv
+recursive-include sap *.html
+recursive-include sap *.ico
+recursive-include sap *.js
+recursive-include sap *.json
+recursive-include sap *.md
+recursive-include sap *.png
+recursive-include sap *.py
+recursive-include sap *.svg
+recursive-include sap *.txt
+recursive-exclude sap *.pyc

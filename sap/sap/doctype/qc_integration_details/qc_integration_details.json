@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-08-26 10:13:04.749404",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "batchnumber",
+  "expirydate",
+  "u_b1abs",
+  "quantity",
+  "status",
+  "inspection",
+  "item_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "batchnumber",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "BatchNumber"
+  },
+  {
+   "fieldname": "expirydate",
+   "fieldtype": "Data",
+   "label": "ExpiryDate"
+  },
+  {
+   "fieldname": "u_b1abs",
+   "fieldtype": "Data",
+   "label": "U_B1ABS"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\n\u0645\u0637\u0627\u0628\u0642\n\u063a\u064a\u0631 \u0645\u0637\u0627\u0628\u0642\n\u062f\u0631\u062c\u0629 \u062b\u0627\u0646\u064a\u0629\n\u0647\u0627\u0644\u0643\n\u0639\u0638\u0645"
+  },
+  {
+   "fieldname": "inspection",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Inspection",
+   "options": "Quality Inspection"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "item_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Item Status",
+   "options": "Pending\nSent to SAP"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-08-27 11:22:02.408443",
+ "modified_by": "Administrator",
+ "module": "Sap",
+ "name": "QC Integration Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

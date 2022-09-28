@@ -1,0 +1,391 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-04-14 15:18:49.692611",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user_setting_section",
+  "login_url",
+  "user_name",
+  "company_db",
+  "password",
+  "column_break_4",
+  "product_url",
+  "default_scaler",
+  "api_attributes_section",
+  "document_no",
+  "customer_name",
+  "item_serial",
+  "quantity",
+  "item_group",
+  "length",
+  "width",
+  "thickness",
+  "density",
+  "packing_type",
+  "core_type",
+  "core_weight",
+  "extensions",
+  "weight",
+  "total_weight",
+  "pallet_no",
+  "color",
+  "rolls_no",
+  "hand",
+  "printing_colors",
+  "folding",
+  "column_break_21",
+  "welding",
+  "welding_type",
+  "handling_type",
+  "handling_direction",
+  "application",
+  "packing",
+  "core_width",
+  "roll_width",
+  "packing_weight",
+  "roll_status",
+  "item_no",
+  "item_type",
+  "production_type",
+  "weight_type",
+  "life_time",
+  "code",
+  "sorder",
+  "shift"
+ ],
+ "fields": [
+  {
+   "fieldname": "default_scaler",
+   "fieldtype": "Link",
+   "label": "Default Scaler",
+   "options": "Scaler"
+  },
+  {
+   "default": "B1i",
+   "fieldname": "user_name",
+   "fieldtype": "Data",
+   "label": "User Name"
+  },
+  {
+   "default": "12345",
+   "fieldname": "password",
+   "fieldtype": "Data",
+   "label": "Password"
+  },
+  {
+   "default": "Customer",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "default": "ItemCode",
+   "fieldname": "item_serial",
+   "fieldtype": "Data",
+   "label": "Item Serial"
+  },
+  {
+   "default": "QuantityKG",
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity"
+  },
+  {
+   "default": "ProdName",
+   "fieldname": "item_group",
+   "fieldtype": "Data",
+   "label": "Item Group"
+  },
+  {
+   "default": "DocEntry",
+   "fieldname": "document_no",
+   "fieldtype": "Data",
+   "label": "Document No"
+  },
+  {
+   "default": "RollLength",
+   "fieldname": "length",
+   "fieldtype": "Data",
+   "label": "Length"
+  },
+  {
+   "default": "Width",
+   "fieldname": "width",
+   "fieldtype": "Data",
+   "label": "Width"
+  },
+  {
+   "default": "Thickness",
+   "fieldname": "thickness",
+   "fieldtype": "Data",
+   "label": "Thickness"
+  },
+  {
+   "default": "Density",
+   "fieldname": "density",
+   "fieldtype": "Data",
+   "label": "Density"
+  },
+  {
+   "default": "Core",
+   "fieldname": "core_type",
+   "fieldtype": "Data",
+   "label": "Core Type"
+  },
+  {
+   "default": "CoreWeight",
+   "fieldname": "core_weight",
+   "fieldtype": "Data",
+   "label": "Core Weight"
+  },
+  {
+   "default": "Additional",
+   "fieldname": "extensions",
+   "fieldtype": "Data",
+   "label": "Extensions"
+  },
+  {
+   "default": "NetWeight",
+   "fieldname": "weight",
+   "fieldtype": "Data",
+   "label": "Net weight"
+  },
+  {
+   "default": "GrossWeight",
+   "fieldname": "total_weight",
+   "fieldtype": "Data",
+   "label": "Gross Weight"
+  },
+  {
+   "default": "Color",
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "default": "Hand",
+   "fieldname": "hand",
+   "fieldtype": "Data",
+   "label": "Hand"
+  },
+  {
+   "default": "Fold",
+   "fieldname": "folding",
+   "fieldtype": "Data",
+   "label": "Folding"
+  },
+  {
+   "default": "Welding",
+   "fieldname": "welding",
+   "fieldtype": "Data",
+   "label": "Welding"
+  },
+  {
+   "default": "WeldingType",
+   "fieldname": "welding_type",
+   "fieldtype": "Data",
+   "label": "welding Type"
+  },
+  {
+   "default": "TreatmentType",
+   "fieldname": "handling_type",
+   "fieldtype": "Data",
+   "label": "Handling Type"
+  },
+  {
+   "default": "Treatment",
+   "fieldname": "handling_direction",
+   "fieldtype": "Data",
+   "label": "Handling Direction"
+  },
+  {
+   "default": "Application",
+   "fieldname": "application",
+   "fieldtype": "Data",
+   "label": "Application"
+  },
+  {
+   "default": "Packing",
+   "fieldname": "packing",
+   "fieldtype": "Data",
+   "label": "Packing"
+  },
+  {
+   "default": "CoreWidth",
+   "fieldname": "core_width",
+   "fieldtype": "Data",
+   "label": "Core Width"
+  },
+  {
+   "default": "RollWidth",
+   "fieldname": "roll_width",
+   "fieldtype": "Data",
+   "label": "Roll Width"
+  },
+  {
+   "default": "PackingWeigth",
+   "fieldname": "packing_weight",
+   "fieldtype": "Data",
+   "label": "Packing Weight"
+  },
+  {
+   "fieldname": "user_setting_section",
+   "fieldtype": "Section Break",
+   "label": "User Setting"
+  },
+  {
+   "fieldname": "api_attributes_section",
+   "fieldtype": "Section Break",
+   "label": "Api Attributes"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "RollStatus",
+   "fieldname": "roll_status",
+   "fieldtype": "Data",
+   "label": "Roll Status"
+  },
+  {
+   "default": "PrintingNumber",
+   "fieldname": "printing_colors",
+   "fieldtype": "Data",
+   "label": "Printing Colors"
+  },
+  {
+   "default": "PackingType",
+   "fieldname": "packing_type",
+   "fieldtype": "Data",
+   "label": "Packing Type"
+  },
+  {
+   "default": "ProdNo",
+   "fieldname": "item_no",
+   "fieldtype": "Data",
+   "label": "Item No"
+  },
+  {
+   "default": "ProductType",
+   "fieldname": "item_type",
+   "fieldtype": "Data",
+   "label": "Item Type"
+  },
+  {
+   "default": "ProductionType",
+   "fieldname": "production_type",
+   "fieldtype": "Data",
+   "label": "Production Type"
+  },
+  {
+   "default": "WeightType",
+   "fieldname": "weight_type",
+   "fieldtype": "Data",
+   "label": "Weight Type"
+  },
+  {
+   "default": "LifeTime",
+   "fieldname": "life_time",
+   "fieldtype": "Data",
+   "label": "Life Time"
+  },
+  {
+   "default": "RollQuantity",
+   "fieldname": "rolls_no",
+   "fieldtype": "Data",
+   "label": "Rolls No"
+  },
+  {
+   "default": "A20847_AQPI_T01",
+   "fieldname": "company_db",
+   "fieldtype": "Data",
+   "label": "CompanyDB"
+  },
+  {
+   "default": "https://htpc20847p01.cloudiax.com:50000/b1s/v1/SQLQueries('SemiProdQuery')/List",
+   "fieldname": "product_url",
+   "fieldtype": "Data",
+   "label": "Finished Product URL"
+  },
+  {
+   "default": "https://htpc20847p01.cloudiax.com:50000/b1s/v1/Login",
+   "fieldname": "login_url",
+   "fieldtype": "Data",
+   "label": "Login URL"
+  },
+  {
+   "default": "Palletnumber",
+   "fieldname": "pallet_no",
+   "fieldtype": "Data",
+   "label": "Pallet No"
+  },
+  {
+   "default": "Code",
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code"
+  },
+  {
+   "default": "SOrder",
+   "fieldname": "sorder",
+   "fieldtype": "Data",
+   "label": "Sorder"
+  },
+  {
+   "default": "Shift",
+   "fieldname": "shift",
+   "fieldtype": "Data",
+   "label": "Shift"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-07-05 14:16:59.498367",
+ "modified_by": "Administrator",
+ "module": "Sap",
+ "name": "Product Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

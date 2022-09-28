@@ -1,0 +1,480 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-03-03 11:16:53.013679",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order_information_section",
+  "document_no",
+  "item_no",
+  "shift",
+  "shift_employee",
+  "order_status",
+  "column_break_3",
+  "item_group",
+  "item_serial",
+  "item_type",
+  "customer_no",
+  "code",
+  "customer_name",
+  "print_format",
+  "item_information_section",
+  "quantity",
+  "length",
+  "width",
+  "sorder",
+  "weight_type",
+  "weight",
+  "density",
+  "packing_type",
+  "extensions",
+  "color",
+  "hand",
+  "printing_colors",
+  "folding",
+  "welding",
+  "pallet_no",
+  "column_break_10",
+  "welding_type",
+  "handling_type",
+  "handling_direction",
+  "roll_status",
+  "core_width",
+  "packing_weight",
+  "roll_width",
+  "packing",
+  "thickness",
+  "core_type",
+  "core_weight",
+  "total_weight",
+  "application",
+  "section_break_18",
+  "roll_information_section",
+  "rolls_no",
+  "generate",
+  "item_details_section",
+  "total_net_weight",
+  "total_gross_weight",
+  "product_details",
+  "section_break_26",
+  "print_selected_pallet",
+  "column_break_30",
+  "send_to_sap",
+  "selected_qr",
+  "selected_row",
+  "section_break_31",
+  "selected_product",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_no",
+   "fieldtype": "Data",
+   "label": "Customer No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Data",
+   "label": "Net Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "product_details",
+   "fieldtype": "Table",
+   "label": "Items Details",
+   "options": "Product Order Details"
+  },
+  {
+   "fieldname": "generate",
+   "fieldtype": "Button",
+   "label": "Generate"
+  },
+  {
+   "fieldname": "item_serial",
+   "fieldtype": "Data",
+   "label": "Item No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "document_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Document No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity",
+   "read_only": 1
+  },
+  {
+   "description": "Meter",
+   "fieldname": "length",
+   "fieldtype": "Data",
+   "label": "Length"
+  },
+  {
+   "description": "Centimeter",
+   "fieldname": "width",
+   "fieldtype": "Data",
+   "label": "Width"
+  },
+  {
+   "description": "Micron",
+   "fieldname": "thickness",
+   "fieldtype": "Data",
+   "label": "Thickness"
+  },
+  {
+   "fieldname": "core_type",
+   "fieldtype": "Data",
+   "label": "Core Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "core_weight",
+   "fieldtype": "Data",
+   "label": "Core Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_weight",
+   "fieldtype": "Data",
+   "label": "Gross Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "application",
+   "fieldtype": "Data",
+   "label": "Application",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rolls_no",
+   "fieldtype": "Int",
+   "label": "Rolls No"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "item_details_section",
+   "fieldtype": "Section Break",
+   "label": "Item Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break",
+   "label": "Roll Information",
+   "read_only": 1
+  },
+  {
+   "fieldname": "order_information_section",
+   "fieldtype": "Section Break",
+   "label": "Order Information"
+  },
+  {
+   "fieldname": "roll_information_section",
+   "fieldtype": "Section Break",
+   "label": "Roll Information",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "item_information_section",
+   "fieldtype": "Section Break",
+   "label": "Product Information"
+  },
+  {
+   "fieldname": "section_break_26",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "send_to_sap",
+   "fieldtype": "Button",
+   "label": "Send to SAP"
+  },
+  {
+   "fieldname": "selected_qr",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "selected qr"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Data",
+   "label": "Item Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "selected_product",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "selected product",
+   "options": "Product Order Details"
+  },
+  {
+   "fieldname": "section_break_31",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "density",
+   "fieldtype": "Data",
+   "label": "Density",
+   "read_only": 1
+  },
+  {
+   "fieldname": "extensions",
+   "fieldtype": "Data",
+   "label": "Extensions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hand",
+   "fieldtype": "Data",
+   "label": "Hand",
+   "read_only": 1
+  },
+  {
+   "fieldname": "folding",
+   "fieldtype": "Data",
+   "label": "Folding",
+   "read_only": 1
+  },
+  {
+   "fieldname": "welding",
+   "fieldtype": "Data",
+   "label": "Welding",
+   "read_only": 1
+  },
+  {
+   "fieldname": "welding_type",
+   "fieldtype": "Data",
+   "label": "Welding Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "handling_type",
+   "fieldtype": "Data",
+   "label": "Handling Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "handling_direction",
+   "fieldtype": "Data",
+   "label": "Handling Direction",
+   "read_only": 1
+  },
+  {
+   "fieldname": "roll_status",
+   "fieldtype": "Data",
+   "label": "Roll Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "packing",
+   "fieldtype": "Data",
+   "label": "Packing",
+   "read_only": 1
+  },
+  {
+   "fieldname": "core_width",
+   "fieldtype": "Data",
+   "label": "Core Width",
+   "read_only": 1
+  },
+  {
+   "fieldname": "packing_weight",
+   "fieldtype": "Data",
+   "label": "Packing Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "roll_width",
+   "fieldtype": "Data",
+   "label": "Roll width",
+   "read_only": 1
+  },
+  {
+   "fieldname": "printing_colors",
+   "fieldtype": "Data",
+   "label": "Printing Colors",
+   "read_only": 1
+  },
+  {
+   "fieldname": "packing_type",
+   "fieldtype": "Data",
+   "label": "Packing Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Product Order",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "pallet_no",
+   "fieldtype": "Data",
+   "label": "Pallet No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "print_selected_pallet",
+   "fieldtype": "Button",
+   "label": "Print Selected Pallet"
+  },
+  {
+   "fieldname": "item_type",
+   "fieldtype": "Data",
+   "label": "Item Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sorder",
+   "fieldtype": "Data",
+   "label": "SOrder",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Link",
+   "label": "Shift",
+   "options": "Shift Type"
+  },
+  {
+   "fieldname": "weight_type",
+   "fieldtype": "Data",
+   "label": "Weight Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_no",
+   "fieldtype": "Data",
+   "label": "Production No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shift_employee",
+   "fieldtype": "Data",
+   "label": "Shift Employee"
+  },
+  {
+   "fieldname": "total_net_weight",
+   "fieldtype": "Data",
+   "label": "Total Net Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_gross_weight",
+   "fieldtype": "Data",
+   "label": "Total Gross Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "print_format",
+   "fieldtype": "Select",
+   "label": "Print format"
+  },
+  {
+   "default": "New",
+   "fieldname": "order_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Order Status",
+   "options": "New\nIn Progress\nFinished",
+   "read_only": 1
+  },
+  {
+   "fieldname": "selected_row",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "selected_row"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-08-17 17:10:50.290626",
+ "modified_by": "Administrator",
+ "module": "Sap",
+ "name": "Product Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "document_no"
+}
