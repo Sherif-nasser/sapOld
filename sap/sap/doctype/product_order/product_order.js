@@ -92,6 +92,38 @@ frappe.ui.form.on("Product Order", {
     frm.set_value("order_status", "In Progress");
     refresh_field("product_details");
   },
+
+  update_item_waiting_quality: function (frm) {
+    let items = frm.get_selected().product_details;
+
+    if (!items) frappe.throw("Select items to be sent");
+
+    items.forEach((item) => {
+
+      if (locals["Product Order Details"][item].item_status == "Waiting Quality")
+        frappe.throw("Some items already is Waiting Quality");
+      else {
+        frappe.call({
+          method: "sap.api.update_item_waiting_quality",
+          args: {
+            name: locals["Product Order Details"][item].name,
+
+          },
+          callback:function(r){
+            frappe.msgprint("Succesfuly Qc")
+            frm.reload_doc();
+
+          }
+        });
+      }
+   
+      frm.save().then(() => frm.trigger("reload"));
+
+      //refresh_field("product_details");
+
+    });
+
+  },
   send_to_sap: function (frm) {
     is_doc_instantiated(frm);
 

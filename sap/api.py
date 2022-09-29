@@ -5,7 +5,16 @@ import json
 import time
 from sap.qr_generator import get_qr
 
-
+@frappe.whitelist()
+def update_item_waiting_quality(name):
+   # print ("\n i'm in \n ")
+    doc = frappe.get_doc("Product Order Details",name)    
+   
+    doc.item_status = "Waiting Quality"
+    
+    doc.save()
+    frappe.db.commit()
+    return True
 
 @frappe.whitelist()
 def get_items_wait_quality(pallet_no='', start_date='', end_date='', item_serial='', document_no=''):
