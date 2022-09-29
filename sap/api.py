@@ -7,7 +7,7 @@ from sap.qr_generator import get_qr
 
 @frappe.whitelist()
 def update_item_waiting_quality(name):
-   # print ("\n i'm in \n ")
+   #
     doc = frappe.get_doc("Product Order Details",name)    
    
     doc.item_status = "Waiting Quality"
