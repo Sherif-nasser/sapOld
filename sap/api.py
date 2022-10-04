@@ -5,19 +5,10 @@ import json
 import time
 from sap.qr_generator import get_qr
 
-@frappe.whitelist()
-def update_item_waiting_quality(name):
-   #
-    doc = frappe.get_doc("Product Order Details",name)    
-   
-    doc.item_status = "Waiting Quality"
-    
-    doc.save()
-    frappe.db.commit()
-    return True
+
 
 @frappe.whitelist()
-def get_items_wait_quality(pallet_no='', start_date='', end_date='', item_serial='', document_no=''):
+def get_items_wait_quality(pallet_no=0, start_date='', end_date='', item_serial='', document_no=''):
     """
     return a list of dicts of Product Order Details(child table) joined with Product
     Order(parent table) which there item_status = 'Waiting Quality' filtered on the
@@ -56,6 +47,27 @@ def get_items_wait_quality(pallet_no='', start_date='', end_date='', item_serial
     items = frappe.db.sql(query, as_dict=1)
     return items
 
+@frappe.whitelist()
+def Finished_Order(name):
+   # print ("\n i'm in \n ")
+    doc = frappe.get_doc("Product Order",name)    
+   
+    doc.order_status = "Finished"
+    
+    doc.save()
+    frappe.db.commit()
+    return True
+
+@frappe.whitelist()
+def update_item_waiting_quality(name):
+   # print ("\n i'm in \n ")
+    doc = frappe.get_doc("Product Order Details",name)    
+   
+    doc.item_status = "Waiting Quality"
+    
+    doc.save()
+    frappe.db.commit()
+    return True
 
 @frappe.whitelist()
 def update_item_quality(name, status, qt_inspection):
@@ -124,6 +136,7 @@ def get_products_from_sap(progress=False):
                        "docstatus", "company_db", "user_name", "password", "default_scaler", "doctype", "login_url", "product_url"}
             for value in product_setting.as_dict():
                 if value not in ignored:
+                    
                     setattr(product, value, sap_products[i].get(
                         product_setting.get(value)))
             product.insert()
@@ -136,7 +149,15 @@ def get_products_from_sap(progress=False):
 
 
 @frappe.whitelist()
-def send_product_to_sap(product_name, items=None, shift_employee=''):
+def send_product_to_sap(product_name,items=None, shift_employee=''):
+    '''
+    items_list = [frappe.db.get("Product Order Details", item)
+                      for item in json.loads(items)]
+    for i in items_list:
+        print(i)
+        print("********************************")
+        print(dir(i))
+    '''
     log = frappe.new_doc("Sap Integration Log")
     post_product_setting = frappe.get_doc("Post Product Setting").as_dict()
 
@@ -148,7 +169,7 @@ def send_product_to_sap(product_name, items=None, shift_employee=''):
 
     session_id = session_login(login_url, company_db, username, password)
 
-    ignored = {"name", "owner", "creation", "modified", "modified_by", "parent", "parentfield", "parenttype", "idx",
+    ignored = {"length","name" ,"roll_status","owner", "creation", "modified", "modified_by", "parent", "parentfield", "parenttype", "idx",
                "docstatus", "company_db", "user_name", "password", "default_scaler", "doctype", "login_url", "product_url"}
 
     product = frappe.db.get('Product Order', product_name)
@@ -168,8 +189,11 @@ def send_product_to_sap(product_name, items=None, shift_employee=''):
     batch_number = []
     total_quantity = 0
     if items:
+        
+        
         items_list = [frappe.db.get("Product Order Details", item)
                       for item in json.loads(items)]
+        
     else:
         items = frappe.db.get_list("Product Order Details", filters={'item_status': [
                                    '!=', 'Sent to SAP'], 'parent': product.name})
@@ -204,12 +228,18 @@ def send_product_to_sap(product_name, items=None, shift_employee=''):
         batch["U_B1Customer"] = product.customer_name
         batch["Location"] = str(product.document_no) + \
             '/' + str(item.get("pallet_no", ''))
-
+        batch[post_product_setting["length"]]=item["length"]
+        
+        
+       
+        
         for value in post_product_setting:
             if value not in ignored:
+                #print("\n",value,'\n')
                 batch[post_product_setting[value]
                       ] = product.get(value, '')
-
+               # print(post_product_setting[value]," is :",product.get(value, ''))
+        batch[post_product_setting["roll_status"]]= item["quality_status"] 
         batch[post_product_setting["net_weight"]
               ] = item.get("net_weight", '')
         batch[post_product_setting["gross_weight"]
@@ -225,8 +255,13 @@ def send_product_to_sap(product_name, items=None, shift_employee=''):
     headers = {
         'Cookie': f'B1SESSION={session_id}'
     }
+    print('\n',data,'\n')
+    #frappe.throw(data)
+    
     payload = json.dumps(data)
     response = requests.request("POST", url, headers=headers, data=payload)
+  #  print('\n',payload,'\n')
+    frappe.throw(payload)
     resp = json.loads(response.text)
     if response.status_code == 201:
         log.status = "Success"
@@ -248,7 +283,7 @@ def send_payroll(name):
     password = post_product_setting["password"]
     username = post_product_setting["user_name"]
     company_db = post_product_setting["company_db"]
-    url = "https://htpc20847p01.cloudiax.com:50000/b1s/v1/JournalVouchersService_Add"
+    url = ''#"https://htpc20847p01.cloudiax.com:50000/b1s/v1/JournalVouchersService_Add"
 
     session_id = session_login(login_url, company_db, username, password)
 
@@ -270,7 +305,7 @@ def send_payroll(name):
                 "JournalEntryLines": entries
             }
         }
-    }
+   }
     payload = json.dumps(data)
     headers = {
         'Content-Type': 'application/json',
@@ -291,7 +326,7 @@ def send_loan(name):  # done
     password = post_product_setting["password"]
     username = post_product_setting["user_name"]
     company_db = post_product_setting["company_db"]
-    url = "https://htpc20847p01.cloudiax.com:50000/b1s/v1/JournalVouchersService_Add"
+    url = ' '#"https://htpc20847p01.cloudiax.com:50000/b1s/v1/JournalVouchersService_Add"
 
     session_id = session_login(login_url, company_db, username, password)
 
@@ -360,7 +395,7 @@ def get_qc_from_sap():
     values = json.loads(response.text)['value']
     for value in values:
         doc_e = value['DocEntry']
-        item_url = f"https://htpc20847p01.cloudiax.com:50000/b1s/v1/PurchaseDeliveryNotes({doc_e})"
+        item_url = ' '#f"https://htpc20847p01.cloudiax.com:50000/b1s/v1/PurchaseDeliveryNotes({doc_e})"
         headers = {
             'Cookie': f'B1SESSION={session_id}'
         }
@@ -409,7 +444,7 @@ def send_qc_to_sap(items):
             "Status": "bdsStatus_Released",
             "U_B1B023": rec.status
         }
-        url = f"https://htpc20847p01.cloudiax.com:50000/b1s/v1/BatchNumberDetails({rec.u_b1abs})"
+        url = ''#f"https://htpc20847p01.cloudiax.com:50000/b1s/v1/BatchNumberDetails({rec.u_b1abs})"
         payload = json.dumps(data)
 
         response = requests.request(

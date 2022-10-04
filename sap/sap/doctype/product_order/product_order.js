@@ -87,12 +87,26 @@ frappe.ui.form.on("Product Order", {
       frm.add_child("product_details", {
         // row_no: `${frm.doc.document_no}-${i+1}`,
         ref: `${frm.doc.item_serial}-${frm.doc.length}-${frm.doc.width}`,
+        length:`${frm.doc.length}`,
       });
     }
     frm.set_value("order_status", "In Progress");
     refresh_field("product_details");
   },
+  finished_order:function(frm){
+    frappe.call({
+      method: "sap.api.Finished_Order",
+      args: {
+        name: frm.doc.name,
 
+      },
+      callback:function(r){
+        frappe.msgprint("Order is Finished ")
+        frm.reload_doc();
+
+      }
+    });
+  },
   update_item_waiting_quality: function (frm) {
     let items = frm.get_selected().product_details;
 
@@ -130,19 +144,22 @@ frappe.ui.form.on("Product Order", {
     frappe.show_progress("Sending items to Sap..", 20, 100, "Please wait");
 
     let items = frm.get_selected().product_details;
-
+   //frappe.throw(items)
     if (!items) frappe.throw("Select items to be sent");
 
     items.forEach((item) => {
       if (locals["Product Order Details"][item].item_status == "Sent to SAP")
         frappe.throw("Some items already sent to SAP");
+       
     });
+    //console.log(locals["Product Order Details"][item].length)
     frappe.call({
       async: false,
       method: "sap.api.send_product_to_sap",
       args: {
         product_name: frm.doc.name,
         items: JSON.stringify(items),
+       // length:locals["Product Order Details"][item].length
       },
       callback: function (r) {
         frappe.show_progress("Sending items to Sap..", 100, 100, "Please wait");
@@ -155,7 +172,8 @@ frappe.ui.form.on("Product Order", {
               "Product Order Details",
               item,
               "item_status",
-              "Sent to SAP"
+              "Sent to SAP",
+            
             );
           }
         }
@@ -213,7 +231,7 @@ frappe.ui.form.on("Product Order Details", {
       // Authentication information
       // clientId: 'foobar_test_random' + Math.floor(Math.random() * 10000),
     };
-    const connectUrl = "wss://test.mosquitto.org:8081";
+    const connectUrl = ''//"wss://test.mosquitto.org:8081";
     const client = mqtt.connect(connectUrl, options);
 
     //actually subscribe to something on a sucessfull connection
@@ -335,3 +353,9 @@ function is_doc_instantiated(frm) {
   // let name = frm.doc.name.split("-");
   if (frm.doc.__unsaved) frappe.throw("Save the Doc to generate qr code");
 }
+
+
+frappe.ui.form.on("Quality Control Details", {
+
+
+});
